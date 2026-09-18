@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #0a0d16;
+  color: #f5f5f7;
+}
+
+.font-serif-display {
+  font-family: 'Instrument Serif', 'Times New Roman', serif;
+  letter-spacing: -0.02em;
+}
+
+@layer base {
+  :root {
+    --background: 225 30% 6%;
+    --foreground: 210 40% 98%;
+    --card: 225 25% 9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 225 30% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217 20% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 20% 15%;
+    --muted-foreground: 215 15% 60%;
+    --accent: 217 20% 15%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 20% 16%;
+    --input: 217 20% 16%;
+    --ring: 30 95% 55%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; }
+}
+
+@layer utilities {
+  .radar-grad-orange {
+    background: linear-gradient(135deg, #ff6b1a 0%, #ff9d4a 100%);
+  }
+  .radar-grad-premium {
+    background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+  }
+  .radar-grad-dark {
+    background: linear-gradient(180deg, #0f1421 0%, #0a0d16 100%);
+  }
+  .radar-glass {
+    background: rgba(20, 25, 40, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .radar-ring-live {
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.4), 0 0 20px rgba(239, 68, 68, 0.25);
+  }
+  .radar-pulse::before {
+    content: '';
+    display: inline-block;
+    width: 8px; height: 8px; border-radius: 999px;
+    background: #ef4444; margin-right: 6px;
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    animation: radarPulse 1.6s infinite;
+  }
+  @keyframes radarPulse {
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+  }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+}
