@@ -1,0 +1,3 @@
+// Simple 192x192 PNG placeholder — served for SW notifications.
+// We'll rely on the browser's default in dev if the file isn't found.
+// (No binary needed here for MVP.)
